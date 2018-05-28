@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.2 (Build 741U_SU)" ts="2018-05-28 12:06:12">
+
+
+
+
+<Super>User.Osoba,%Persistent</Super>
+<TimeChanged>64796,41993.453927</TimeChanged>
+<TimeCreated>64796,39854.713415</TimeCreated>
+
+<Property name="email">
+<Type>%String</Type>
+</Property>
+</Class>
+
+
+<Class name="User.KomputerStacjonarny">
+<Super>User.Towar,%Persistent</Super>
+<TimeChanged>64796,40818.57765</TimeChanged>
+<TimeCreated>64791,46812.110535</TimeCreated>
+
+<Property name="CenaSpr">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="CenaZak">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="Procesor">
+<Type>%String</Type>
+</Property>
+
+<Property name="Dysk">
+<Type>%String</Type>
+</Property>
+
+<Property name="KartaGraficzna">
+<Type>%String</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr - ..CenaZak
+]]></Implementation>
+</Method>
+
+<Method name="Wartosc">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="User.Laptop">
+<Super>User.Towar,%Persistent</Super>
+<TimeChanged>64796,40829.904663</TimeChanged>
+<TimeCreated>64791,46281.862967</TimeCreated>
+
+<Property name="CenaSpr">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="CenaZak">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="Martyca">
+<Type>%Integer</Type>
+<Parameter name="MINVAL" value="10"/>
+</Property>
+
+<Property name="Producent">
+<Type>%String</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr - ..CenaZak
+]]></Implementation>
+</Method>
+
+<Method name="Wartosc">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="User.Monitor">
+<Super>User.Towar,%Persistent</Super>
+<TimeChanged>64796,41903.087707</TimeChanged>
+<TimeCreated>64791,46351.783782</TimeCreated>
+
+<Property name="CenaSpr">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="CenaZak">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="Martyca">
+<Type>%Integer</Type>
+<Parameter name="MINVAL" value="10"/>
+</Property>
+
+<Property name="Producent">
+<Type>%String</Type>
+</Property>
+
+<Property name="Rabat">
+<Type>%Double</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr - ..CenaZak - ..Rabat
+]]></Implementation>
+</Method>
+
+<Method name="Wartosc">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr - ..Rabat
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="User.Osoba">
+<Abstract>1</Abstract>
+<TimeChanged>64796,39778.020785</TimeChanged>
+<TimeCreated>64796,39734.992008</TimeCreated>
+
+<Property name="Imie">
+<Type>%String</Type>
+</Property>
+
+<Property name="Nazwisko">
+<Type>%String</Type>
+</Property>
+
+<Property name="Ulica">
+<Type>%String</Type>
+</Property>
+
+<Property name="KodPocz">
+<Type>%String</Type>
+</Property>
+
+<Property name="Miejscowosc">
+<Type>%String</Type>
+</Property>
+</Class>
+
+
+<Super>User.Osoba,%Persistent</Super>
+<TimeChanged>64796,42001.254155</TimeChanged>
+<TimeCreated>64796,39900.476049</TimeCreated>
+
+<Property name="Stanowisko">
+<Type>%String</Type>
+</Property>
+</Class>
+
+
+<Class name="User.Towar">
+<Abstract>1</Abstract>
+<TimeChanged>64796,40305.14781</TimeChanged>
+<TimeCreated>64791,45221.547328</TimeCreated>
+
+<Property name="Nazwa">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="MAXLEN" value="200"/>
+<Parameter name="MINLEN" value="3"/>
+</Property>
+
+<Property name="Opis">
+<Type>%String</Type>
+<Parameter name="MAXLEN" value="2000"/>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+</Method>
+
+<Method name="Wartosc">
+<ReturnType>%Double</ReturnType>
+</Method>
+</Class>
+</Export>
