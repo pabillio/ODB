@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.2 (Build 741U_SU)" ts="2018-05-28 10:43:04">
+<Class name="User.KomputerStacjonarny">
+<Super>User.Towar</Super>
+<TimeChanged>64796,37760.811471</TimeChanged>
+<TimeCreated>64791,46812.110535</TimeCreated>
+
+<Property name="Procesor">
+<Type>%String</Type>
+</Property>
+
+<Property name="Dysk">
+<Type>%String</Type>
+</Property>
+
+<Property name="KartaGraficzna">
+<Type>%String</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaZak - ..CenaSpr
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="User.Laptop">
+<Super>User.Towar</Super>
+<TimeChanged>64791,46982.865529</TimeChanged>
+<TimeCreated>64791,46281.862967</TimeCreated>
+
+<Property name="Martyca">
+<Type>%Integer</Type>
+<Parameter name="MINVAL" value="10"/>
+</Property>
+
+<Property name="Producent">
+<Type>%String</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaZak - ..CenaSpr
+]]></Implementation>
+</Method>
+</Class>
+
+
+<Class name="User.Monitor">
+<Super>User.Towar</Super>
+<TimeChanged>64796,38520.615161</TimeChanged>
+<TimeCreated>64791,46351.783782</TimeCreated>
+
+<Property name="Martyca">
+<Type>%Integer</Type>
+<Parameter name="MINVAL" value="10"/>
+</Property>
+
+<Property name="Producent">
+<Type>%String</Type>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[	return ..CenaSpr - ..CenaZak
+]]></Implementation>
+</Method>
+</Class>
+
+
+
+
+<Class name="User.Towar">
+<Abstract>1</Abstract>
+<TimeChanged>64791,48128.082216</TimeChanged>
+<TimeCreated>64791,45221.547328</TimeCreated>
+
+<Property name="Nazwa">
+<Type>%String</Type>
+<Required>1</Required>
+<Parameter name="MAXLEN" value="200"/>
+<Parameter name="MINLEN" value="3"/>
+</Property>
+
+<Property name="CenaSpr">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="CenaZak">
+<Type>%Double</Type>
+<Required>1</Required>
+<Parameter name="MINVAL" value="0"/>
+</Property>
+
+<Property name="Opis">
+<Type>%String</Type>
+<Parameter name="MAXLEN" value="2000"/>
+</Property>
+
+<Method name="ZyskSklepu">
+<ReturnType>%Double</ReturnType>
+</Method>
+</Class>
+</Export>
