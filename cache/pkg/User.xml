@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2017.2 (Build 741U_SU)" ts="2018-05-28 12:06:12">
+<Class name="User.Faktura">
+<Super>%Persistent</Super>
+<TimeChanged>64796,41526.997543</TimeChanged>
+<TimeCreated>64796,39976.648789</TimeCreated>
+
+<Property name="KtoSprzedal">
+<Type>User.Pracownik</Type>
+</Property>
+
+<Property name="KtoKupil">
+<Type>User.Klient</Type>
+</Property>
+
+<Property name="Towary">
+<Type>User.Towar</Type>
+<Collection>list</Collection>
+</Property>
+
+<Property name="Wartosc">
+<Type>%Double</Type>
+</Property>
+
+<Property name="Zysk">
+<Type>%Double</Type>
+</Property>
+
+<Method name="ObliczWartosc">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[
+	set ..Wartosc = 0.0
+	for i=1:1:..Towary.Count()
+	{
+		set ..Wartosc = ..Wartosc + ..Towary.GetAt(i).Wartosc()
+	}
+	return ..Wartosc
+]]></Implementation>
+</Method>
+
+<Method name="ObliczZysk">
+<ReturnType>%Double</ReturnType>
+<Implementation><![CDATA[
+	set ..Zysk = 0.0
+		for i=1:1:..Towary.Count()
+	{
+		set ..Zysk = ..Zysk + ..Towary.GetAt(i).ZyskSklepu()
+	}
+	return ..Zysk
+]]></Implementation>
+</Method>
+
+<Storage name="Default">
+<Type>%Library.CacheStorage</Type>
+<DataLocation>^User.FakturaD</DataLocation>
+<DefaultData>FakturaDefaultData</DefaultData>
+<IdLocation>^User.FakturaD</IdLocation>
+<IndexLocation>^User.FakturaI</IndexLocation>
+<StreamLocation>^User.FakturaS</StreamLocation>
+<Data name="FakturaDefaultData">
+<Structure>listnode</Structure>
+<Subscript/>
+<Value name="1">
+<Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>KtoSprzedal</Value>
+</Value>
+<Value name="3">
+<Value>KtoKupil</Value>
+</Value>
+<Value name="4">
+<Value>Towary</Value>
+</Value>
+<Value name="5">
+<Value>Wartosc</Value>
+</Value>
+<Value name="6">
+<Value>Zysk</Value>
+</Value>
+</Data>
+</Storage>
+</Class>
 
 
-
-
+<Class name="User.Klient">
 <Super>User.Osoba,%Persistent</Super>
 <TimeChanged>64796,41993.453927</TimeChanged>
 <TimeCreated>64796,39854.713415</TimeCreated>
@@ -168,6 +248,9 @@
 </Class>
 
 
+
+
+<Class name="User.Pracownik">
 <Super>User.Osoba,%Persistent</Super>
 <TimeChanged>64796,42001.254155</TimeChanged>
 <TimeCreated>64796,39900.476049</TimeCreated>
